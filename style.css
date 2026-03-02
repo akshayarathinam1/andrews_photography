@@ -353,6 +353,8 @@ ul { list-style: none; }
   transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
   position: relative;
   overflow: hidden;
+  isolation: isolate;
+  z-index: 1;
 }
 
 .btn-primary::before {
@@ -362,6 +364,11 @@ ul { list-style: none; }
   background: var(--gold-light);
   transform: translateX(-100%);
   transition: transform 0.4s ease;
+  z-index: -1;
+}
+
+.btn-primary:hover {
+  color: var(--bg-dark);
 }
 
 .btn-primary:hover::before { transform: translateX(0); }
@@ -987,6 +994,13 @@ ul { list-style: none; }
 .form-submit-wrap { display: flex; justify-content: center; padding-top: 8px; }
 
 .btn-submit { width: 100%; justify-content: center; padding: 16px; }
+
+.form-group input:hover,
+.form-group textarea:hover {
+  border-color: var(--white-30);
+  background: var(--bg-section);
+  color: var(--white-90);
+}
 
 .form-success {
   display: none;
